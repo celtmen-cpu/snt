@@ -8,37 +8,82 @@
 </head>
 
 <body>
+  
 
   <div class="bandeau haut">
+    <div class="containerButtonTraduction">
+      <button class="boutton" id="langBtn" onclick="toggleLang()">English Version</button>
+    </div>
     <h1 data-fr="Faits inutiles" data-en="Useless Fact"></h1>
   </div>
 
   <div class="bandeau paragraphe">
-    <p data-fr="Ce site web propose une collection de faits inutiles mais interessants. Il a été crée pour permettre d'apprendre le html." data-en="This website offers a collection of useless facts."></p>
+    <p data-fr="Ce site web propose une collection de faits inutiles mais intéressants. Il a été créé pour permettre d'apprendre l’HTML." data-en="This website offers a collection of useless but interesting facts. It was created to learn HTML."></p>
   </div>
-  <button id="langBtn" onclick="toggleLang()">English Version</button>
+  <div>
+    <h2 data-fr="Thèmes Principaux" data-en="Main Topics"></h2>
+
+    <div class="containerButtonThemes">
+      <button class="boutton" data-fr="Animaux" data-en="Animals"></button>
+      <button class="boutton" data-fr="Espace" data-en="Space"></button>
+      <button class="boutton" data-fr="Histoire" data-en="History"></button>
+      <button class="boutton" data-fr="Technologie" data-en="Technology"></button>
+
+  </div>
+
+
+
 </body>
 
 <style>
+  :root {
+    --ThemeBorder: #000000;
+    --ThemeBackground: #0000000d;
+    --ThemeColorFort: #000000;
+    --ThemeColorFaible: #ffffff;
+  }
   body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: white;
     color: black;
+    text-align: center;
   }
 
   .bandeau.haut {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: var(--ThemeColorFort);
     padding: 20px;
     text-align: center;
-    border-radius: 12px;
+    border-radius: 20px;
   }
 
   .bandeau.paragraphe {
     padding: 20px;
     text-align: center;
-    background-color: white
+    background-color: white;
+    color: var(--ThemeColorFort);
+  }
+  .containerButtonTraduction{
+    display: flex;
+    justify-content: right;
+    margin-top: 5px;
+  }
+
+  .boutton{
+    padding: 2.5px 5px;
+    border-radius: 10px;
+    background-color: var(--ThemeBackground);
+    color: var(--ThemeColorFort);
+    border: 2.5px solid var(--ThemeBorder);
+    font-weight: bold;
+    font-style: italic;
+    font-size: 10px;
+  }
+  .containerButtonThemes{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 </style>
 
