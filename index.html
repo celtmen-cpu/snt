@@ -5,30 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <title>useless facts</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: white;
-      color: black;
-    }
-
-    .bandeau.haut {
-      background-color: black;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      border-radius: 12px;
-    }
-
-    .bandeau.paragraphe {
-      padding: 20px;
-      text-align: center;
-      background-color: white
-    }
-    }
-  </style>
 </head>
 
 <body>
@@ -38,10 +14,55 @@
   </div>
 
   <div class="bandeau paragraphe">
-    <p>Très bientôt...</p>
+    <p data-fr="Très bientôt..." data-en="Very soon..."></p>
   </div>
-  
-  <button onclick="setLang('en')">english version</button>
-  <button onclick="setLang('fr')">version francaise</button>
+
+  <form action="/recherche" method="GET">
+    <input type="text" name="q" placeholder="Rechercher un fait inutile...">
+    <button type="submit">Rechercher</button>
+  </form>
+
+  <button id="langBtn" onclick="toggleLang()">English Version</button>
 </body>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+  }
+
+  .bandeau.haut {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+  }
+
+  .bandeau.paragraphe {
+    padding: 20px;
+    text-align: center;
+    background-color: white
+  }
+</style>
+
+<script>
+  let lang = "fr";
+
+  function updateText(){
+    document.querySelectorAll("[data-fr]").forEach(el => {
+      el.textContent = el.getAttribute("data-"+lang);
+    });
+
+    const btn = document.getElementById("langBtn");
+    btn.textContent = lang === "fr" ? "English Version" : "Version Française";
+  }
+
+  function toggleLang(){
+    lang = lang === "fr" ? "en" : "fr";
+    updateText();
+  }
+
+</script>
 </html>
