@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <link rel="manifest" href="/manifest.json">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <title>useless facts</title>
+
+  <!-- Icône site -->
+  <link rel="icon" type="image/png" href="./logo.PNG">
+  <link rel="apple-touch-icon" href="./logo.PNG">
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="./manifest.json">
 </head>
 
 <body>
   
-
   <div class="bandeau haut">
     <div class="containerButtonTraduction">
       <button class="boutton" id="langBtn" onclick="toggleLang()">English Version</button>
@@ -21,18 +26,17 @@
   <div class="bandeau paragraphe">
     <p data-fr="Ce site web propose une collection de faits inutiles mais intéressants. Il a été créé pour permettre d'apprendre l’HTML." data-en="This website offers a collection of useless but interesting facts. It was created to learn HTML."></p>
   </div>
+
   <div>
     <h2 data-fr="Thèmes Principaux" data-en="Main Topics"></h2>
 
     <div class="containerButtonThemes">
-      <button class="bouttonThemes" data-fr="Animaux" data-en="Animals"></button>
-      <button class="bouttonThemes" data-fr="Espace" data-en="Space"></button>
-      <button class="bouttonThemes" data-fr="Histoire" data-en="History"></button>
-      <button class="bouttonThemes" data-fr="Technologie" data-en="Technology"></button>
-
+      <button class="buttonThemes" data-fr="Animaux" data-en="Animals"></button>
+      <button class="buttonThemes" data-fr="Espace" data-en="Space"></button>
+      <button class="buttonThemes" data-fr="Histoire" data-en="History"></button>
+      <button class="buttonThemes" data-fr="Technologie" data-en="Technology"></button>
+    </div>
   </div>
-
-
 
 </body>
 
@@ -43,6 +47,7 @@
     --ThemeColorFort: #000000;
     --ThemeColorFaible: #ffffff;
   }
+
   body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -64,13 +69,14 @@
     background-color: white;
     color: var(--ThemeColorFort);
   }
-  .containerButtonTraduction{
+
+  .containerButtonTraduction {
     display: flex;
     justify-content: right;
     margin-top: 5px;
   }
 
-  .boutton{
+  .boutton {
     padding: 1% 3%;
     border-radius: 10px;
     background-color: var(--ThemeBackground);
@@ -80,12 +86,14 @@
     font-style: italic;
     font-size: 10px;
   }
-  .containerButtonThemes{
+
+  .containerButtonThemes {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
-  .buttonThemes{
+
+  .buttonThemes {
     padding: 1% 3%;
     border-radius: 10px;
     background-color: var(--ThemeBackground);
@@ -100,19 +108,21 @@
 <script>
   let lang = "fr";
 
-  function updateText(){
+  function updateText() {
     document.querySelectorAll("[data-fr]").forEach(el => {
-      el.textContent = el.getAttribute("data-"+lang);
+      el.textContent = el.getAttribute("data-" + lang);
     });
 
     const btn = document.getElementById("langBtn");
     btn.textContent = lang === "fr" ? "English Version" : "Version Française";
   }
 
-  function toggleLang(){
+  function toggleLang() {
     lang = lang === "fr" ? "en" : "fr";
     updateText();
   }
+
   updateText();
 </script>
+
 </html>
