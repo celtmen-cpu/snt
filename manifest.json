@@ -1,0 +1,10 @@
+{
+  "name": "Useless Facts",
+  "icons": [
+    {
+      "src": "/logo.PNG",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
